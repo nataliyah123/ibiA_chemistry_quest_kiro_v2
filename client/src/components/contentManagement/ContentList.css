@@ -105,7 +105,7 @@
   border: none;
   font-size: 16px;
   font-weight: 500;
-  color: #657786;
+  color: #34495e;
   cursor: pointer;
   border-radius: 8px 8px 0 0;
   transition: all 0.2s ease;
@@ -196,7 +196,7 @@
 }
 
 .content-description {
-  color: #657786;
+  color: #34495e;
   font-size: 14px;
   line-height: 1.5;
   margin-bottom: 15px;
@@ -217,7 +217,7 @@
 
 .content-version {
   background: #e1e8ed;
-  color: #657786;
+  color: #34495e;
   padding: 2px 6px;
   border-radius: 4px;
   font-weight: 600;
@@ -267,7 +267,7 @@
 
 .rollback-button {
   background: #f8f9fa;
-  color: #657786;
+  color: #34495e;
   border: 1px solid #e1e8ed;
 }
 

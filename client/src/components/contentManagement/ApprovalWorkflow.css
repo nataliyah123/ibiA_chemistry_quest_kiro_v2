@@ -118,7 +118,7 @@
 
 .version-badge {
   background: #e1e8ed;
-  color: #657786;
+  color: #34495e;
   padding: 2px 8px;
   border-radius: 12px;
   font-size: 12px;
@@ -132,7 +132,7 @@
 }
 
 .queue-item-description {
-  color: #657786;
+  color: #34495e;
   font-size: 14px;
   line-height: 1.4;
   margin-bottom: 10px;

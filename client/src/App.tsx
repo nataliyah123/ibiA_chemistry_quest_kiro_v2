@@ -16,7 +16,8 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import Dashboard from './components/Dashboard';
 import CharacterProfile from './components/CharacterProfile';
 import { GameRealm } from './pages/GameRealm'; 
-import { EquationDuelsDemoOffline } from './components/demos/EquationDuelsDemoOffline';
+// import { EquationDuelsDemoOffline } from './components/demos/EquationDuelsDemoOffline';
+import { EquationDuelsDemo } from './components/demos/EquationDuelsDemo';
 import { ContentManagementDemo } from './components/demos/ContentManagementDemo';
 import CSSLoadingTestPage from './pages/CSSLoadingTestPage';
 import CSSRetryTestPage from './pages/CSSRetryTestPage';
@@ -208,7 +209,7 @@ const AppContent: React.FC = () => {
             />
             <Route 
               path="/demo" 
-              element={<EquationDuelsDemoOffline />} 
+              element={<EquationDuelsDemo />} 
             />
             <Route 
               path="/content-management" 

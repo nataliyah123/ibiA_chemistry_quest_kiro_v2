@@ -15,6 +15,11 @@ const Dashboard: React.FC = () => {
   };
 
   const handleEnterRealm = (realmType: string) => {
+    const contentC= new Set(["content-management", "content-authoring", "educator-dashboard"]);
+    if (realmType in contentC)
+      console.log("I am content ********")
+      navigate(`/${realmType}`)
+
     // Navigate to the realm - the GameRealm component will handle verification checks
     navigate(`/realm/${realmType}`);
   };
