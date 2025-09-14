@@ -1,0 +1,81 @@
+# -------------------------
+# OS files
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# Client-specific
+client/node_modules/
+client/build/
+
+# Server-specific
+server/node_modules/
+server/dist/
+# -------------------------
+# Node.js
+# -------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+.pnpm-debug.log
+
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+.eggs/
+.Python
+.venv/
+venv/
+env/
+ENV/
+*.ipynb_checkpoints
+
+# -------------------------
+# Build / Dist
+# -------------------------
+dist/
+build/
+out/
+target/
+*.log
+
+# -------------------------
+# IDEs / Editors
+# -------------------------
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# -------------------------
+# Coverage / Testing
+# -------------------------
+coverage/
+*.lcov
+.nyc_output/
+
+# -------------------------
+# Docker
+# -------------------------
+.docker/
+docker-compose.override.yml
+
+# -------------------------
+# Misc
+# -------------------------
+*.env
+*.env.local
+*.env.*.local

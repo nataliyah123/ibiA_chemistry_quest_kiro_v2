@@ -1,0 +1,445 @@
+.precipitate-poker {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.game-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.game-stats {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.bankroll, .timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.gold-icon, .timer-icon {
+  font-size: 1.2rem;
+}
+
+.reaction-display {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.reaction-display h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.3rem;
+}
+
+.reaction-equation {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 15px 0;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+}
+
+.reaction-description {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin: 15px 0 0 0;
+}
+
+.betting-interface {
+  margin-bottom: 25px;
+}
+
+.bet-categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.bet-category h4 {
+  text-align: center;
+  margin: 0 0 15px 0;
+  font-size: 1.2rem;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.bet-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bet-option {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  color: white;
+}
+
+.bet-option:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.bet-option.selected {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: #f1c40f;
+  box-shadow: 0 0 20px rgba(241, 196, 15, 0.5);
+}
+
+.bet-option.correct {
+  background: rgba(46, 204, 113, 0.3);
+  border-color: #2ecc71;
+  animation: correctPulse 1s ease-in-out;
+}
+
+.bet-option.incorrect {
+  background: rgba(231, 76, 60, 0.3);
+  border-color: #e74c3c;
+  animation: incorrectShake 0.5s ease-in-out;
+}
+
+.bet-option:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.bet-description {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.bet-odds {
+  font-size: 0.9rem;
+  color: #f1c40f;
+  margin-bottom: 5px;
+}
+
+.confidence-level {
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.bet-amount-section {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.bet-amount-section h4 {
+  margin: 0 0 15px 0;
+  font-size: 1.2rem;
+}
+
+.bet-amount-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.bet-amount-controls button {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.bet-amount-controls button:hover:not(:disabled) {
+  background: #2980b9;
+}
+
+.bet-amount-controls button:disabled {
+  background: #7f8c8d;
+  cursor: not-allowed;
+}
+
+.bet-amount-controls input {
+  width: 120px;
+  padding: 10px;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.quick-bet-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.quick-bet-buttons button {
+  background: #9b59b6;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.quick-bet-buttons button:hover:not(:disabled) {
+  background: #8e44ad;
+}
+
+.quick-bet-buttons button:disabled {
+  background: #7f8c8d;
+  cursor: not-allowed;
+}
+
+.game-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.hint-button, .submit-button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hint-button {
+  background: #f39c12;
+  color: white;
+}
+
+.hint-button:hover:not(:disabled) {
+  background: #e67e22;
+  transform: translateY(-2px);
+}
+
+.submit-button {
+  background: #27ae60;
+  color: white;
+  font-size: 1.2rem;
+  padding: 15px 30px;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: #229954;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button:disabled {
+  background: #7f8c8d;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.hints-section {
+  background: rgba(243, 156, 18, 0.2);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #f39c12;
+}
+
+.hints-section h4 {
+  margin: 0 0 10px 0;
+  color: #f39c12;
+}
+
+.hints-section ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.hints-section li {
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.result-section {
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  animation: slideIn 0.5s ease-out;
+}
+
+.result-section.correct {
+  background: rgba(46, 204, 113, 0.2);
+  border: 2px solid #2ecc71;
+}
+
+.result-section.incorrect {
+  background: rgba(231, 76, 60, 0.2);
+  border: 2px solid #e74c3c;
+}
+
+.result-section h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.5rem;
+}
+
+.result-feedback {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.result-details p {
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+.game-history {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.game-history h4 {
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.history-entry.won {
+  background: rgba(46, 204, 113, 0.2);
+}
+
+.history-entry.lost {
+  background: rgba(231, 76, 60, 0.2);
+}
+
+.history-entry .win {
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+.history-entry .loss {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Animations */
+@keyframes correctPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes incorrectShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .precipitate-poker {
+    padding: 15px;
+  }
+  
+  .bet-categories {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .game-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .game-stats {
+    justify-content: center;
+  }
+  
+  .reaction-equation {
+    font-size: 1.4rem;
+  }
+  
+  .bet-amount-controls {
+    flex-wrap: wrap;
+  }
+  
+  .quick-bet-buttons {
+    flex-wrap: wrap;
+  }
+  
+  .game-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+}

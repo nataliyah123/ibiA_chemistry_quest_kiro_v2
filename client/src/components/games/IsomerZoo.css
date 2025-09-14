@@ -1,0 +1,374 @@
+.isomer-zoo {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2d5016 0%, #4a7c59 50%, #6b8e23 100%);
+  color: #ffffff;
+  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Game header */
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  border: 2px solid rgba(144, 238, 144, 0.3);
+}
+
+.game-title h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #90EE90;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.game-title p {
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+.game-stats {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #90EE90;
+  transition: color 0.3s ease;
+}
+
+.stat-value.warning {
+  color: #FF6B6B;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Challenge info */
+.challenge-info {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 2px solid rgba(144, 238, 144, 0.3);
+  text-align: center;
+}
+
+.challenge-info h3 {
+  color: #90EE90;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.challenge-info p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Game canvas */
+.game-canvas-container {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 2px solid rgba(144, 238, 144, 0.3);
+  text-align: center;
+}
+
+.game-canvas {
+  background: linear-gradient(135deg, #1a3d0a 0%, #2d5016 50%, #4a7c59 100%);
+  border: 3px solid rgba(144, 238, 144, 0.5);
+  border-radius: 10px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.game-canvas:hover {
+  border-color: #90EE90;
+  box-shadow: 
+    inset 0 0 20px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(144, 238, 144, 0.3);
+}
+
+.canvas-instructions {
+  margin-top: 1rem;
+  font-size: 1rem;
+  opacity: 0.8;
+  color: #90EE90;
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.action-buttons button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.submit-button {
+  background: linear-gradient(45deg, #32CD32, #228B22);
+  color: white;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: linear-gradient(45deg, #228B22, #006400);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(50, 205, 50, 0.4);
+}
+
+.submit-button:disabled {
+  background: #666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.reset-button {
+  background: linear-gradient(45deg, #FF8C00, #FF6347);
+  color: white;
+}
+
+.reset-button:hover:not(:disabled) {
+  background: linear-gradient(45deg, #FF6347, #FF4500);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+}
+
+.reset-button:disabled {
+  background: #666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.hint-button {
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  color: #333;
+}
+
+.hint-button:hover:not(:disabled) {
+  background: linear-gradient(45deg, #FFA500, #FF8C00);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+.hint-button:disabled {
+  background: #666;
+  color: #999;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.abandon-button {
+  background: linear-gradient(45deg, #DC143C, #8B0000);
+  color: white;
+}
+
+.abandon-button:hover:not(:disabled) {
+  background: linear-gradient(45deg, #8B0000, #660000);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(220, 20, 60, 0.4);
+}
+
+/* Hint display */
+.hint-display {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 215, 0, 0.9);
+  color: #333;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  border: 2px solid #FFD700;
+  z-index: 10;
+  animation: slideUp 0.5s ease;
+  max-width: 80%;
+  text-align: center;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateX(-50%) translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+.hint-content {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Completion message */
+.completion-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(50, 205, 50, 0.9);
+  color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  z-index: 20;
+  animation: fadeIn 0.5s ease;
+  backdrop-filter: blur(10px);
+  border: 3px solid #32CD32;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.message-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.message-content p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+/* Floating animations for molecules */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.floating-molecule {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Net glow effects */
+@keyframes netGlow {
+  0%, 100% { box-shadow: 0 0 5px rgba(144, 238, 144, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(144, 238, 144, 0.6); }
+}
+
+.category-net {
+  animation: netGlow 2s ease-in-out infinite;
+}
+
+/* Drag and drop visual feedback */
+.molecule-dragging {
+  opacity: 0.7;
+  transform: scale(1.1);
+  z-index: 100;
+}
+
+.net-highlight {
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.8) !important;
+  border-color: #FFD700 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .isomer-zoo {
+    padding: 1rem;
+  }
+  
+  .game-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .game-stats {
+    gap: 1rem;
+  }
+  
+  .game-canvas {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .action-buttons button {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .hint-display {
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    transform: none;
+    max-width: none;
+  }
+}
+
+/* Special effects for successful categorization */
+@keyframes successPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.success-animation {
+  animation: successPulse 0.5s ease-in-out;
+}
+
+/* Particle effects for molecule capture */
+@keyframes sparkle {
+  0% { opacity: 1; transform: scale(0); }
+  50% { opacity: 0.8; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0); }
+}
+
+.capture-sparkle {
+  animation: sparkle 0.8s ease-out;
+}
+
+/* Category net styling */
+.category-net-structural { border-color: #FF6B6B; }
+.category-net-stereoisomer { border-color: #4ECDC4; }
+.category-net-enantiomer { border-color: #45B7D1; }
+.category-net-diastereomer { border-color: #96CEB4; }
+.category-net-conformational { border-color: #FFEAA7; }

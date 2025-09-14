@@ -1,0 +1,362 @@
+/* Accessibility Styles */
+
+/* High Contrast Mode */
+.high-contrast {
+  --bg-primary: #000000;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --accent-primary: #ffff00;
+  --accent-secondary: #00ffff;
+  --border-color: #ffffff;
+  --focus-color: #ffff00;
+  --error-color: #ff6666;
+  --success-color: #66ff66;
+}
+
+.high-contrast body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.high-contrast .navbar {
+  background: var(--bg-secondary);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.high-contrast .nav-brand,
+.high-contrast .nav-link {
+  color: var(--text-primary);
+}
+
+.high-contrast .nav-link:hover {
+  background-color: var(--accent-primary);
+  color: var(--bg-primary);
+}
+
+.high-contrast .btn {
+  border: 2px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.high-contrast .btn:hover {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+}
+
+.high-contrast .auth-card,
+.high-contrast .stat-card,
+.high-contrast .realm-card {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.high-contrast input,
+.high-contrast select,
+.high-contrast textarea {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+}
+
+.high-contrast input:focus,
+.high-contrast select:focus,
+.high-contrast textarea:focus {
+  border-color: var(--focus-color);
+  box-shadow: 0 0 0 3px var(--focus-color);
+}
+
+/* Font Size Variations */
+.font-small {
+  font-size: 14px;
+}
+
+.font-medium {
+  font-size: 16px;
+}
+
+.font-large {
+  font-size: 18px;
+}
+
+.font-extra-large {
+  font-size: 22px;
+}
+
+.font-large h1,
+.font-extra-large h1 {
+  font-size: 2.5rem;
+}
+
+.font-large h2,
+.font-extra-large h2 {
+  font-size: 2rem;
+}
+
+.font-large h3,
+.font-extra-large h3 {
+  font-size: 1.5rem;
+}
+
+.font-extra-large .btn,
+.font-extra-large input,
+.font-extra-large select {
+  padding: 16px 24px;
+  font-size: 1.2rem;
+}
+
+/* Reduced Motion */
+.reduced-motion *,
+.reduced-motion *::before,
+.reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+.reduced-motion .realm-card:hover {
+  transform: none;
+}
+
+.reduced-motion .btn:hover {
+  transform: none;
+}
+
+/* Focus Indicators */
+.focus-indicators *:focus {
+  outline: 3px solid #4A90E2;
+  outline-offset: 2px;
+}
+
+.focus-indicators button:focus,
+.focus-indicators input:focus,
+.focus-indicators select:focus,
+.focus-indicators textarea:focus,
+.focus-indicators a:focus {
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.5);
+}
+
+/* Skip Links */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 1000;
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Screen Reader Only Content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Screen Reader Mode Enhancements */
+.screen-reader-mode .realm-card::before {
+  content: "Interactive game card: ";
+  speak: literal;
+}
+
+.screen-reader-mode .btn::before {
+  content: "Button: ";
+  speak: literal;
+}
+
+.screen-reader-mode .nav-link::before {
+  content: "Navigation link: ";
+  speak: literal;
+}
+
+/* Keyboard Navigation Enhancements */
+.keyboard-nav-active {
+  outline: 3px solid #4A90E2;
+  outline-offset: 2px;
+}
+
+/* Game-specific Accessibility */
+.game-container {
+  position: relative;
+}
+
+.game-instructions {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.game-instructions h3 {
+  margin-top: 0;
+  color: #495057;
+}
+
+.keyboard-shortcuts {
+  background: #e9ecef;
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.keyboard-shortcuts h4 {
+  margin: 0 0 8px 0;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.keyboard-shortcuts ul {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 0.85rem;
+}
+
+/* Audio Description Controls */
+.audio-controls {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.audio-controls button {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 6px 12px;
+  margin: 0 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.audio-controls button:hover {
+  background: white;
+  color: black;
+}
+
+/* Alternative Input Methods */
+.alternative-input {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.input-method {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-method input[type="radio"] {
+  margin: 0;
+}
+
+.voice-input-button {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.voice-input-button:hover {
+  background: #c82333;
+}
+
+.voice-input-button.recording {
+  background: #28a745;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Touch-friendly enhancements for mobile */
+@media (max-width: 768px) {
+  .btn,
+  .nav-link,
+  .realm-card {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .game-controls button {
+    min-height: 48px;
+    min-width: 48px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Color blind friendly indicators */
+.colorblind-friendly .success {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23fff' d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-left: 24px;
+}
+
+.colorblind-friendly .error {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23fff' d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-left: 24px;
+}
+
+/* Print styles for accessibility */
+@media print {
+  .skip-link,
+  .audio-controls,
+  .navbar,
+  .game-controls {
+    display: none;
+  }
+  
+  .game-instructions {
+    border: 2px solid #000;
+  }
+  
+  * {
+    background: white !important;
+    color: black !important;
+  }
+}

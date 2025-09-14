@@ -1,0 +1,395 @@
+.forest-of-isomers-realm {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2d5016 0%, #4a7c59 50%, #6b8e23 100%);
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.forest-of-isomers-realm::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.06)"/><circle cx="70" cy="80" r="2.5" fill="rgba(255,255,255,0.04)"/></svg>');
+  background-size: 200px 200px;
+  animation: float 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.forest-of-isomers-loading,
+.forest-of-isomers-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #90EE90;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.realm-menu {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.realm-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(144, 238, 144, 0.3);
+}
+
+.realm-title h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(45deg, #90EE90, #32CD32, #228B22);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.realm-description {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.realm-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(144, 238, 144, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(144, 238, 144, 0.3);
+  min-width: 100px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #90EE90;
+}
+
+.game-modes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.game-mode-card {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(144, 238, 144, 0.3);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-mode-card.available:hover {
+  transform: translateY(-5px);
+  border-color: #90EE90;
+  box-shadow: 0 10px 30px rgba(144, 238, 144, 0.3);
+}
+
+.game-mode-card.coming-soon {
+  opacity: 0.7;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.game-mode-card.coming-soon:hover {
+  transform: none;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.game-mode-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.game-mode-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #90EE90;
+}
+
+.game-mode-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.game-mode-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.difficulty {
+  color: #FFD700;
+}
+
+.rewards {
+  color: #90EE90;
+}
+
+.start-button {
+  background: linear-gradient(45deg, #32CD32, #228B22);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.start-button:hover {
+  background: linear-gradient(45deg, #228B22, #006400);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(50, 205, 50, 0.4);
+}
+
+.start-button.coming-soon-btn {
+  background: linear-gradient(45deg, #666, #444);
+  cursor: not-allowed;
+}
+
+.start-button.coming-soon-btn:hover {
+  background: linear-gradient(45deg, #666, #444);
+  transform: none;
+  box-shadow: none;
+}
+
+.realm-progress {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 2px solid rgba(144, 238, 144, 0.3);
+}
+
+.realm-progress h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #90EE90;
+  font-size: 1.5rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #32CD32, #90EE90);
+  transition: width 0.5s ease;
+  border-radius: 10px;
+}
+
+.realm-progress p {
+  text-align: center;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.achievements h4 {
+  margin-bottom: 1rem;
+  color: #90EE90;
+  text-align: center;
+}
+
+.achievement-list {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.achievement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.achievement.unlocked {
+  background: rgba(144, 238, 144, 0.2);
+  border-color: #90EE90;
+  box-shadow: 0 0 15px rgba(144, 238, 144, 0.3);
+}
+
+.achievement-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.achievement-name {
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.realm-navigation {
+  text-align: center;
+}
+
+.back-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.coming-soon-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.placeholder-content {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 3rem;
+  border: 2px solid rgba(144, 238, 144, 0.3);
+  max-width: 500px;
+}
+
+.placeholder-content h2 {
+  color: #90EE90;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.placeholder-content p {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.placeholder-content button {
+  background: linear-gradient(45deg, #32CD32, #228B22);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.placeholder-content button:hover {
+  background: linear-gradient(45deg, #228B22, #006400);
+  transform: scale(1.05);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .realm-menu {
+    padding: 1rem;
+  }
+  
+  .realm-title h1 {
+    font-size: 2rem;
+  }
+  
+  .realm-stats {
+    gap: 1rem;
+  }
+  
+  .game-modes {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .game-mode-card {
+    padding: 1.5rem;
+  }
+  
+  .achievement-list {
+    gap: 0.5rem;
+  }
+  
+  .achievement {
+    min-width: 100px;
+    padding: 0.8rem;
+  }
+}

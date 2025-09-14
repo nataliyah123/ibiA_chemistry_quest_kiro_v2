@@ -1,0 +1,631 @@
+.mole-dungeon-crawler {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #2c1810 0%, #1a1a1a 50%, #0d0d0d 100%);
+  border-radius: 15px;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Dungeon Header */
+.dungeon-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(139, 69, 19, 0.2);
+  border-radius: 12px;
+  border: 2px solid rgba(205, 133, 63, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.dungeon-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dungeon-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #daa520;
+  text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
+  margin: 0;
+}
+
+.room-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.room-number {
+  font-size: 16px;
+  font-weight: bold;
+  color: #cd853f;
+}
+
+.room-progress {
+  width: 200px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #daa520, #ffd700);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+  box-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
+}
+
+.dungeon-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background: rgba(139, 69, 19, 0.3);
+  border-radius: 8px;
+  min-width: 60px;
+}
+
+.stat-icon {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #daa520;
+}
+
+.stat-value.warning {
+  color: #ff6b35;
+  animation: pulse 1s infinite;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #cd853f;
+  text-transform: uppercase;
+}
+
+.dungeon-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.hint-button, .step-button, .abandon-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.hint-button {
+  background: linear-gradient(135deg, #ff8c00, #ff7f50);
+  color: white;
+}
+
+.hint-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #ff7f50, #ff6347);
+  transform: translateY(-2px);
+}
+
+.hint-button:disabled {
+  background: #8b4513;
+  cursor: not-allowed;
+}
+
+.step-button {
+  background: linear-gradient(135deg, #4682b4, #5f9ea0);
+  color: white;
+}
+
+.step-button:hover {
+  background: linear-gradient(135deg, #5f9ea0, #6495ed);
+  transform: translateY(-2px);
+}
+
+.abandon-button {
+  background: linear-gradient(135deg, #8b0000, #a0522d);
+  color: white;
+}
+
+.abandon-button:hover {
+  background: linear-gradient(135deg, #a0522d, #b22222);
+  transform: translateY(-2px);
+}
+
+/* Problem Container */
+.problem-container {
+  margin-bottom: 30px;
+  background: rgba(139, 69, 19, 0.1);
+  border-radius: 12px;
+  padding: 25px;
+  border: 2px solid rgba(205, 133, 63, 0.2);
+}
+
+.room-description h3 {
+  color: #daa520;
+  font-size: 22px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px rgba(218, 165, 32, 0.3);
+}
+
+.room-description p {
+  color: #cd853f;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.stoichiometry-problem {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  border-left: 4px solid #daa520;
+}
+
+.problem-content {
+  font-family: 'Courier New', monospace;
+  line-height: 1.8;
+}
+
+.problem-line {
+  margin-bottom: 8px;
+  color: #f5deb3;
+}
+
+.problem-line.highlight {
+  color: #daa520;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Step-by-Step Guide */
+.step-by-step-guide {
+  margin-bottom: 30px;
+  background: rgba(25, 25, 112, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  border: 2px solid rgba(70, 130, 180, 0.3);
+}
+
+.step-by-step-guide h4 {
+  color: #87ceeb;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.calculation-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.calculation-step {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(70, 130, 180, 0.1);
+  border-radius: 8px;
+  border-left: 4px solid #4682b4;
+  transition: all 0.3s ease;
+}
+
+.calculation-step.completed {
+  background: rgba(34, 139, 34, 0.2);
+  border-left-color: #32cd32;
+}
+
+.step-number {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #4682b4;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.calculation-step.completed .step-number {
+  background: #32cd32;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-description {
+  font-weight: bold;
+  color: #87ceeb;
+  margin-bottom: 5px;
+}
+
+.step-calculation {
+  color: #b0c4de;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+}
+
+.step-status {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+/* Answer Section */
+.answer-section {
+  margin-bottom: 30px;
+  background: rgba(139, 69, 19, 0.1);
+  border-radius: 12px;
+  padding: 25px;
+  border: 2px solid rgba(205, 133, 63, 0.2);
+}
+
+.answer-label {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  color: #daa520;
+  margin-bottom: 15px;
+}
+
+.input-group {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.answer-input {
+  flex: 1;
+  padding: 15px;
+  font-size: 18px;
+  border: 2px solid #8b4513;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  transition: border-color 0.3s ease;
+}
+
+.answer-input:focus {
+  outline: none;
+  border-color: #daa520;
+  box-shadow: 0 0 10px rgba(218, 165, 32, 0.3);
+}
+
+.submit-button {
+  padding: 15px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #228b22, #32cd32);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #32cd32, #90ee90);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(50, 205, 50, 0.3);
+}
+
+.submit-button:disabled {
+  background: #8b4513;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.answer-help {
+  color: #cd853f;
+  font-size: 14px;
+}
+
+.answer-help p {
+  margin: 5px 0;
+}
+
+/* Feedback */
+.feedback {
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: bold;
+  animation: fadeIn 0.5s ease;
+}
+
+.feedback.success {
+  background: rgba(34, 139, 34, 0.2);
+  border: 2px solid #32cd32;
+  color: #90ee90;
+}
+
+.feedback.error {
+  background: rgba(139, 0, 0, 0.2);
+  border: 2px solid #dc143c;
+  color: #ff6b6b;
+}
+
+.feedback-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.feedback-text {
+  flex: 1;
+  line-height: 1.5;
+}
+
+/* Solution Display */
+.solution-display {
+  margin-bottom: 20px;
+  background: rgba(25, 25, 112, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  border: 2px solid rgba(70, 130, 180, 0.3);
+}
+
+.solution-display h4 {
+  color: #87ceeb;
+  margin-bottom: 15px;
+}
+
+.solution-content {
+  font-family: 'Courier New', monospace;
+  line-height: 1.6;
+}
+
+.solution-line {
+  margin-bottom: 8px;
+  color: #b0c4de;
+}
+
+/* Hints Modal */
+.hints-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.hints-content {
+  background: linear-gradient(135deg, #2c1810, #1a1a1a);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 500px;
+  text-align: center;
+  border: 2px solid #daa520;
+}
+
+.hints-content h3 {
+  color: #daa520;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.hints-content p {
+  color: #cd853f;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.hints-content button {
+  padding: 10px 25px;
+  background: linear-gradient(135deg, #daa520, #ffd700);
+  color: #2c1810;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hints-content button:hover {
+  background: linear-gradient(135deg, #ffd700, #ffff99);
+  transform: translateY(-2px);
+}
+
+/* Dungeon Door Animation */
+.dungeon-door {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 120px;
+  height: 160px;
+  z-index: 50;
+}
+
+.door-frame {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(135deg, #8b4513, #a0522d);
+  border-radius: 10px 10px 0 0;
+  border: 3px solid #654321;
+  overflow: hidden;
+}
+
+.door-left, .door-right {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, #654321, #8b4513);
+  transition: transform 1s ease;
+}
+
+.door-left {
+  left: 0;
+  border-right: 1px solid #4a2c17;
+}
+
+.door-right {
+  right: 0;
+  border-left: 1px solid #4a2c17;
+}
+
+.dungeon-door.unlocked .door-left {
+  transform: translateX(-100%);
+}
+
+.dungeon-door.unlocked .door-right {
+  transform: translateX(100%);
+}
+
+.door-lock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  z-index: 10;
+  transition: all 0.5s ease;
+}
+
+.door-glow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: radial-gradient(circle, rgba(218, 165, 32, 0.3) 0%, transparent 70%);
+  border-radius: 15px;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.dungeon-door.unlocked .door-glow {
+  opacity: 1;
+  animation: doorGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes doorGlow {
+  0% { box-shadow: 0 0 20px rgba(218, 165, 32, 0.5); }
+  100% { box-shadow: 0 0 40px rgba(218, 165, 32, 0.8); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mole-dungeon-crawler {
+    padding: 15px;
+  }
+  
+  .dungeon-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .dungeon-stats {
+    justify-content: center;
+  }
+  
+  .dungeon-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .calculation-step {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .step-content {
+    order: 1;
+  }
+  
+  .step-number {
+    order: 0;
+    align-self: center;
+  }
+  
+  .step-status {
+    order: 2;
+    align-self: center;
+  }
+  
+  .dungeon-door {
+    width: 80px;
+    height: 100px;
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dungeon-title {
+    font-size: 20px;
+  }
+  
+  .room-progress {
+    width: 150px;
+  }
+  
+  .problem-container,
+  .answer-section,
+  .step-by-step-guide {
+    padding: 15px;
+  }
+  
+  .answer-input {
+    font-size: 16px;
+    padding: 12px;
+  }
+  
+  .submit-button {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}

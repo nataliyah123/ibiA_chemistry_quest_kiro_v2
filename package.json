@@ -1,0 +1,40 @@
+{
+  "name": "chemquest-alchemist-academy",
+  "version": "1.0.0",
+  "description": "A gamified chemistry learning platform for O/A-Level students",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "cd client && npm run build",
+    "build:server": "cd server && npm run build",
+    "start": "cd server && npm start",
+    "test": "npm run test:client && npm run test:server",
+    "test:client": "cd client && npm test",
+    "test:server": "cd server && npm test",
+    "docker:dev": "docker-compose -f docker-compose.dev.yml up",
+    "docker:prod": "docker-compose up",
+    "verify:deployment": "node scripts/deployment-verification.js",
+    "verify:nginx": "node scripts/nginx-config-check.js",
+    "verify:container": "node scripts/container-health-check.js",
+    "verify:all": "bash scripts/post-deployment-check.sh",
+    "verify:post-deploy": "npm run verify:all"
+  },
+  "keywords": [
+    "chemistry",
+    "education",
+    "gamification",
+    "learning"
+  ],
+  "author": "ChemQuest Team",
+  "license": "MIT",
+  "devDependencies": {    
+    "concurrently": "^8.2.2",
+    "jsdom": "^26.1.0"    
+  },
+  "dependencies": {
+    "web-vitals": "^5.1.0"
+  }
+}

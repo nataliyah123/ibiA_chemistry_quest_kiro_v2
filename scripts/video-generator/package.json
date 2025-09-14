@@ -1,0 +1,43 @@
+{
+  "name": "chemquest-video-generator",
+  "version": "1.0.0",
+  "description": "AI agent for generating ChemQuest gameplay tutorial videos",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "record": "node src/recordGameplay.js",
+    "install-deps": "npm install",
+    "generate": "node run-video-generator.js",
+    "generate:docker": "node run-video-generator.js docker",
+    "generate:vite": "node run-video-generator.js vite",
+    "generate:production": "node run-video-generator.js production",
+    "generate:direct": "node src/index.js --url=http://localhost:3000",
+    "help": "node run-video-generator.js --help",
+    "test": "node test-connection.js",
+    "test:docker": "node test-connection.js http://localhost:3000",
+    "test:vite": "node test-connection.js http://localhost:5173",
+    "debug": "node simple-test.js",
+    "standalone": "node standalone-generator.js",
+    "demo": "node demo-video-generator.js",
+    "demo:simple": "node simple-demo-generator.js",
+    "demo:live": "node chemquest-live-demo.js",
+    "demo:narrated": "node chemquest-narrated-demo.js",
+    "demo:narrated:fixed": "node chemquest-narrated-demo-fixed.js",
+    "demo:simple:narrated": "node chemquest-simple-narrated.js",
+    "test:tts": "node test-tts.js",
+    "test:tts:debug": "node test-tts-debug.js"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "fs-extra": "^11.1.1",
+    "path": "^0.12.7",
+    "puppeteer": "^21.5.0",
+    "uuid": "^9.0.1",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4"
+  }
+}

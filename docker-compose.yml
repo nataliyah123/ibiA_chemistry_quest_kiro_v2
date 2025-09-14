@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: chemquest-postgres
+    environment:
+      POSTGRES_DB: chemquest_db
+      POSTGRES_USER: chemquest_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - chemquest-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chemquest_user -d chemquest_db"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: chemquest-redis
+    volumes:
+      - redis_data:/data
+    networks:
+      - chemquest-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Backend Server (Production)
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: chemquest-server
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      DATABASE_URL: postgresql://chemquest_user:${DB_PASSWORD}@postgres:5432/chemquest_db
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: ${JWT_SECRET}
+      CLIENT_URL: ${CLIENT_URL}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - chemquest-network
+
+  # Frontend Client (Production)
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: chemquest-client
+    environment:
+      VITE_API_URL: ${API_URL}
+    ports:
+      - "80:80"
+    depends_on:
+      - server
+    networks:
+      - chemquest-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  chemquest-network:
+    driver: bridge

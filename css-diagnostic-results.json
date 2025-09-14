@@ -1,0 +1,289 @@
+{
+  "assetTests": [
+    {
+      "testName": "CSS_ASSET_DIRECT",
+      "url": "http://localhost:3000/assets/index-8b70c5c9.css",
+      "timestamp": "2025-08-29T08:45:30.158Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 443,
+      "headers": null,
+      "error": null,
+      "body": null
+    },
+    {
+      "testName": "CSS_ASSET_PATH_/assets/index-8b70c5c9.css",
+      "url": "http://localhost:3000/assets/index-8b70c5c9.css",
+      "timestamp": "2025-08-29T08:45:30.602Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 20,
+      "headers": null,
+      "error": null,
+      "body": null
+    },
+    {
+      "testName": "CSS_ASSET_PATH_/assets/index-8b70c5c9.css",
+      "url": "http://localhost:3000/assets/index-8b70c5c9.css",
+      "timestamp": "2025-08-29T08:45:30.623Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 9,
+      "headers": null,
+      "error": null,
+      "body": null
+    },
+    {
+      "testName": "CSS_ASSET_PATH_/client/assets/index-8b70c5c9.css",
+      "url": "http://localhost:3000/client/assets/index-8b70c5c9.css",
+      "timestamp": "2025-08-29T08:45:30.634Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 11,
+      "headers": null,
+      "error": null,
+      "body": null
+    },
+    {
+      "testName": "CSS_ASSET_PATH_assets/index-8b70c5c9.css",
+      "url": "http://localhost:3000/assets/index-8b70c5c9.css",
+      "timestamp": "2025-08-29T08:45:30.646Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 15,
+      "headers": null,
+      "error": null,
+      "body": null
+    }
+  ],
+  "routeTests": [
+    {
+      "testName": "ROUTE_ROOT",
+      "url": "http://localhost:3000/",
+      "timestamp": "2025-08-29T08:45:30.662Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 10,
+      "headers": null,
+      "error": null,
+      "body": null
+    },
+    {
+      "testName": "ROUTE_ROOTlogin",
+      "url": "http://localhost:3000/login",
+      "timestamp": "2025-08-29T08:45:30.672Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 17,
+      "headers": null,
+      "error": null,
+      "body": null
+    },
+    {
+      "testName": "ROUTE_ROOTregister",
+      "url": "http://localhost:3000/register",
+      "timestamp": "2025-08-29T08:45:30.690Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 12,
+      "headers": null,
+      "error": null,
+      "body": null
+    },
+    {
+      "testName": "ROUTE_ROOTdashboard",
+      "url": "http://localhost:3000/dashboard",
+      "timestamp": "2025-08-29T08:45:30.702Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 17,
+      "headers": null,
+      "error": null,
+      "body": null
+    },
+    {
+      "testName": "ROUTE_ROOTprofile",
+      "url": "http://localhost:3000/profile",
+      "timestamp": "2025-08-29T08:45:30.719Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 14,
+      "headers": null,
+      "error": null,
+      "body": null
+    },
+    {
+      "testName": "ROUTE_ROOTdemo",
+      "url": "http://localhost:3000/demo",
+      "timestamp": "2025-08-29T08:45:30.733Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 16,
+      "headers": null,
+      "error": null,
+      "body": null
+    },
+    {
+      "testName": "ROUTE_ROOTcontent-management",
+      "url": "http://localhost:3000/content-management",
+      "timestamp": "2025-08-29T08:45:30.749Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 16,
+      "headers": null,
+      "error": null,
+      "body": null
+    },
+    {
+      "testName": "ROUTE_ROOTnonexistent-route",
+      "url": "http://localhost:3000/nonexistent-route",
+      "timestamp": "2025-08-29T08:45:30.766Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 13,
+      "headers": null,
+      "error": null,
+      "body": null
+    }
+  ],
+  "mimeTypeTests": [
+    {
+      "testName": "MIME_TYPE_TEST",
+      "url": "http://localhost:3000/assets/index-8b70c5c9.css",
+      "timestamp": "2025-08-29T08:45:30.781Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 12,
+      "headers": {
+        "vary": "Origin",
+        "date": "Fri, 29 Aug 2025 08:45:30 GMT",
+        "connection": "close",
+        "content-length": "0"
+      },
+      "error": null,
+      "body": null,
+      "headerValidation": {
+        "content-type": {
+          "expected": "text/css",
+          "valid": false
+        },
+        "cache-control": {
+          "expected": "/public.*immutable/i",
+          "valid": false
+        },
+        "access-control-allow-origin": {
+          "expected": "*",
+          "valid": false
+        }
+      }
+    }
+  ],
+  "cacheHeaderTests": [
+    {
+      "testName": "CACHE_NORMAL_REQUEST",
+      "url": "http://localhost:3000/assets/index-8b70c5c9.css",
+      "timestamp": "2025-08-29T08:45:30.798Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 12,
+      "headers": {
+        "vary": "Origin",
+        "date": "Fri, 29 Aug 2025 08:45:30 GMT",
+        "connection": "close",
+        "content-length": "0"
+      },
+      "error": null,
+      "body": null
+    },
+    {
+      "testName": "CACHE_WITH_CACHE_CONTROL",
+      "url": "http://localhost:3000/assets/index-8b70c5c9.css",
+      "timestamp": "2025-08-29T08:45:30.810Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 11,
+      "headers": {
+        "vary": "Origin",
+        "date": "Fri, 29 Aug 2025 08:45:30 GMT",
+        "connection": "close",
+        "content-length": "0"
+      },
+      "error": null,
+      "body": null
+    },
+    {
+      "testName": "CACHE_WITH_PRAGMA",
+      "url": "http://localhost:3000/assets/index-8b70c5c9.css",
+      "timestamp": "2025-08-29T08:45:30.822Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 12,
+      "headers": {
+        "vary": "Origin",
+        "date": "Fri, 29 Aug 2025 08:45:30 GMT",
+        "connection": "close",
+        "content-length": "0"
+      },
+      "error": null,
+      "body": null
+    },
+    {
+      "testName": "CACHE_WITH_IF_MODIFIED_SINCE",
+      "url": "http://localhost:3000/assets/index-8b70c5c9.css",
+      "timestamp": "2025-08-29T08:45:30.834Z",
+      "success": false,
+      "statusCode": 404,
+      "contentLength": "0",
+      "responseTime": 11,
+      "headers": {
+        "vary": "Origin",
+        "date": "Fri, 29 Aug 2025 08:45:30 GMT",
+        "connection": "close",
+        "content-length": "0"
+      },
+      "error": null,
+      "body": null
+    }
+  ],
+  "errors": [],
+  "summary": {
+    "totalTests": 18,
+    "passedTests": 0,
+    "failedTests": 18,
+    "categories": {
+      "assetTests": {
+        "total": 5,
+        "passed": 0
+      },
+      "routeTests": {
+        "total": 8,
+        "passed": 0
+      },
+      "mimeTypeTests": {
+        "total": 1,
+        "passed": 0
+      },
+      "cacheHeaderTests": {
+        "total": 4,
+        "passed": 0
+      }
+    }
+  }
+}

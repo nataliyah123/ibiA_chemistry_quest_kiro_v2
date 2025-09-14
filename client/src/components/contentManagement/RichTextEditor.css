@@ -1,0 +1,177 @@
+.rich-text-editor {
+  border: 2px solid #dee2e6;
+  border-radius: 6px;
+  background: white;
+  transition: border-color 0.2s ease;
+}
+
+.rich-text-editor:focus-within {
+  border-color: #1da1f2;
+  box-shadow: 0 0 0 3px rgba(29, 161, 242, 0.1);
+}
+
+.rich-text-editor.error {
+  border-color: #dc3545;
+}
+
+.rich-text-editor.error:focus-within {
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  border-radius: 6px 6px 0 0;
+}
+
+.toolbar-group {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.toolbar-group:not(:last-child)::after {
+  content: '';
+  width: 1px;
+  height: 20px;
+  background: #dee2e6;
+  margin-left: 8px;
+}
+
+.toolbar-button {
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  min-width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toolbar-button:hover {
+  background: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.toolbar-button:active {
+  background: #dee2e6;
+}
+
+.toolbar-select {
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 14px;
+  cursor: pointer;
+  min-width: 80px;
+  height: 32px;
+}
+
+.toolbar-select:hover {
+  border-color: #adb5bd;
+}
+
+.editor-content {
+  min-height: 150px;
+  padding: 15px;
+  outline: none;
+  line-height: 1.6;
+  font-size: 14px;
+  color: #495057;
+}
+
+.editor-content:empty::before {
+  content: attr(data-placeholder);
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Chemical formula and equation styling */
+.editor-content .chemical-formula {
+  font-family: 'Times New Roman', serif;
+  font-weight: 500;
+  color: #2c3e50;
+  background: #e8f4f8;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.editor-content .chemical-equation {
+  font-family: 'Times New Roman', serif;
+  font-weight: 500;
+  color: #2c3e50;
+  background: #f0f8ff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin: 8px 0;
+  border-left: 4px solid #1da1f2;
+  text-align: center;
+}
+
+/* List styling */
+.editor-content ul,
+.editor-content ol {
+  margin: 10px 0;
+  padding-left: 30px;
+}
+
+.editor-content li {
+  margin: 5px 0;
+}
+
+/* Heading styling */
+.editor-content h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 15px 0 10px 0;
+}
+
+.editor-content h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #495057;
+  margin: 12px 0 8px 0;
+}
+
+/* Subscript and superscript styling */
+.editor-content sub,
+.editor-content sup {
+  font-size: 0.8em;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .editor-toolbar {
+    padding: 8px;
+    gap: 4px;
+  }
+
+  .toolbar-button {
+    padding: 4px 6px;
+    min-width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .toolbar-select {
+    min-width: 70px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .editor-content {
+    padding: 12px;
+    font-size: 14px;
+  }
+}

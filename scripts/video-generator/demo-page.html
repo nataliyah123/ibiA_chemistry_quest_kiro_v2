@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemQuest Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        .section {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        .title {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+        .demo-item {
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        .equation {
+            font-family: 'Courier New', monospace;
+            font-size: 1.5rem;
+            background: rgba(0,0,0,0.2);
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+        }
+        .progress-bar {
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+            height: 20px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        .progress-fill {
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            height: 100%;
+            width: 75%;
+            border-radius: 10px;
+            transition: width 2s ease;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .highlight {
+            color: #00ff00;
+            font-weight: bold;
+        }
+        .success {
+            background: rgba(0,255,0,0.2);
+            border: 2px solid #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">🧪 ChemQuest: Alchemist Academy</div>
+    
+    <div class="section" id="login">
+        <h2>🔐 AI Agent Login</h2>
+        <div class="demo-item">
+            <p>Email: <span id="email">ai.agent@chemquest.com</span></p>
+            <p>Status: <span id="status">Logging in...</span></p>
+        </div>
+    </div>
+    
+    <div class="section" id="character">
+        <h2>👤 Character Profile</h2>
+        <div class="demo-item">
+            <p>🧙‍♂️ Alchemist Apprentice</p>
+            <p>Level: <span id="level">15</span> • XP: <span id="xp">2,450</span></p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="xp-bar"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section" id="equation-game">
+        <h2>⚔️ Equation Duels</h2>
+        <div class="demo-item">
+            <p>Balance the equation:</p>
+            <div class="equation" id="equation">
+                <span id="c1">1</span>CH₄ + <span id="c2">2</span>O₂ → <span id="c3">1</span>CO₂ + <span id="c4">2</span>H₂O
+            </div>
+            <p id="result">🎉 Correct! +50 XP</p>
+        </div>
+    </div>
+    
+    <div class="section" id="flashcards">
+        <h2>🃏 Flashcard Match</h2>
+        <div class="demo-item">
+            <p>H₂O ↔ Water ✅</p>
+            <p>NaCl ↔ Sodium Chloride ✅</p>
+            <p>Perfect Match! +30 XP</p>
+        </div>
+    </div>
+    
+    <div class="section" id="analytics">
+        <h2>📊 Analytics</h2>
+        <div class="demo-item">
+            <p>🎯 Accuracy: <span id="accuracy">92%</span></p>
+            <p>⚡ Speed: <span id="speed">38 sec avg</span></p>
+            <p>🏆 Achievements: <span id="achievements">14/20</span></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,354 @@
+.cartographers-gauntlet-realm {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #ffffff;
+  padding: 2rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.cartographers-gauntlet-realm::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(100, 200, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 150, 100, 0.1) 0%, transparent 50%),
+    linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.02) 50%, transparent 70%);
+  pointer-events: none;
+}
+
+.realm-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.realm-title h1 {
+  font-size: 3.5rem;
+  margin: 0;
+  background: linear-gradient(45deg, #64b5f6, #42a5f5, #2196f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(33, 150, 243, 0.5);
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% { filter: brightness(1) drop-shadow(0 0 10px rgba(33, 150, 243, 0.3)); }
+  100% { filter: brightness(1.2) drop-shadow(0 0 20px rgba(33, 150, 243, 0.6)); }
+}
+
+.realm-subtitle {
+  font-size: 1.3rem;
+  color: #b3d9ff;
+  margin: 0.5rem 0 0 0;
+  font-weight: 300;
+}
+
+.realm-description {
+  max-width: 800px;
+  margin: 2rem auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #e3f2fd;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(100, 181, 246, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.game-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(100, 181, 246, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.game-card:hover::before {
+  left: 100%;
+}
+
+.game-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: #64b5f6;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(100, 181, 246, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.boss-card {
+  border-color: #ff6b35;
+  background: linear-gradient(145deg, rgba(255, 107, 53, 0.15), rgba(255, 107, 53, 0.05));
+}
+
+.boss-card:hover {
+  border-color: #ff8a65;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(255, 107, 53, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.game-icon {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.game-info {
+  text-align: center;
+}
+
+.game-name {
+  font-size: 1.8rem;
+  margin: 0 0 1rem 0;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.game-description {
+  font-size: 1rem;
+  color: #b3d9ff;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+.game-meta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+}
+
+.difficulty {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.difficulty.medium {
+  background: linear-gradient(45deg, #ff9800, #f57c00);
+  color: white;
+}
+
+.difficulty.hard {
+  background: linear-gradient(45deg, #f44336, #d32f2f);
+  color: white;
+}
+
+.difficulty.boss {
+  background: linear-gradient(45deg, #9c27b0, #7b1fa2);
+  color: white;
+  animation: bossGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes bossGlow {
+  0% { box-shadow: 0 0 10px rgba(156, 39, 176, 0.5); }
+  100% { box-shadow: 0 0 20px rgba(156, 39, 176, 0.8); }
+}
+
+.boss-indicator {
+  background: linear-gradient(45deg, #ff6b35, #ff8a65);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  animation: bossIndicator 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes bossIndicator {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lock-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.lock-icon {
+  font-size: 3rem;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(100, 181, 246, 0.3);
+  border-top: 4px solid #64b5f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.realm-lore {
+  margin: 4rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.lore-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid rgba(100, 181, 246, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.lore-section h3 {
+  color: #64b5f6;
+  margin: 0 0 1rem 0;
+  font-size: 1.4rem;
+}
+
+.lore-section p {
+  color: #e3f2fd;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.rewards-preview {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.rewards-preview h3 {
+  color: #64b5f6;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.rewards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.reward-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(100, 181, 246, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.reward-item:hover {
+  transform: translateY(-5px);
+  border-color: #64b5f6;
+}
+
+.reward-icon {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.reward-name {
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.reward-description {
+  color: #b3d9ff;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cartographers-gauntlet-realm {
+    padding: 1rem;
+  }
+  
+  .realm-title h1 {
+    font-size: 2.5rem;
+  }
+  
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .game-card {
+    padding: 1.5rem;
+  }
+  
+  .realm-lore {
+    grid-template-columns: 1fr;
+  }
+}

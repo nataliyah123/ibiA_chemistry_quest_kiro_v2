@@ -1,0 +1,44 @@
+{
+  "name": "chemquest-ai-tutorial-generator",
+  "version": "1.0.0",
+  "description": "AI-powered tutorial video generator for ChemQuest: Alchemist Academy",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "generate-tutorial": "./generate-tutorial.js"
+  },
+  "scripts": {
+    "start": "node generate-tutorial.js",
+    "dev": "node --inspect generate-tutorial.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "chemquest",
+    "tutorial",
+    "video",
+    "ai",
+    "automation",
+    "puppeteer",
+    "ffmpeg"
+  ],
+  "author": "ChemQuest Team",
+  "license": "MIT",
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "fluent-ffmpeg": "^2.1.2",
+    "fs-extra": "^11.2.0",
+    "puppeteer": "^21.6.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.10.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
