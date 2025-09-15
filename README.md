@@ -31,7 +31,7 @@ A gamified chemistry learning platform designed for O/A-Level students, transfor
 2. **Start with Docker (Recommended)**
    ```bash
    # Start all services in development mode
-   npm run docker:dev
+   docker-compose -f docker-compose.dev.yml up
    ```
 
 3. **Or run locally**
@@ -99,7 +99,7 @@ chemquest-alchemist-academy/
 - `npm run dev` - Start both client and server in development mode
 - `npm run build` - Build both client and server for production
 - `npm run test` - Run tests for both client and server
-- `npm run docker:dev` - Start development environment with Docker
+- `docker-compose -f docker-compose.dev.yml up` - Start development environment with Docker
 - `npm run docker:prod` - Start production environment with Docker
 
 ## 🔧 Technology Stack
