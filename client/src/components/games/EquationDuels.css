@@ -178,15 +178,24 @@
   display: flex;
   align-items: center;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .compound-group {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
+  padding: 6px 10px;
+  /* border: 1px solid #ccc; */
+  border-radius: 6px;
+  margin: 4px;
+  /* background: #f9f9f9; */
+  white-space: nowrap;       /* prevent inner wrapping so coeff + compound stay on one line */
+  min-width: max-content;
 }
 
 .coefficient-slot {
+  flex-shrink: 0;
   width: 40px;
   height: 40px;
   border: 2px solid #4a90e2;
@@ -243,6 +252,7 @@
   font-weight: bold;
   color: #ecf0f1;
   text-shadow: 0 0 5px rgba(236, 240, 241, 0.3);
+  white-space: normal;
 }
 
 .plus {

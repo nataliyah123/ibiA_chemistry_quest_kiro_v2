@@ -16,14 +16,15 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import Dashboard from './components/Dashboard';
 import CharacterProfile from './components/CharacterProfile';
 import { GameRealm } from './pages/GameRealm'; 
-// import { EquationDuelsDemoOffline } from './components/demos/EquationDuelsDemoOffline';
-import { EquationDuelsDemo } from './components/demos/EquationDuelsDemo';
+import { EquationDuelsDemo2 } from './components/demos/EquationDuelsDemo2';
+// import { EquationDuels } from './components/games/EquationDuels';
 import { ContentManagementDemo } from './components/demos/ContentManagementDemo';
-import CSSLoadingTestPage from './pages/CSSLoadingTestPage';
-import CSSRetryTestPage from './pages/CSSRetryTestPage';
-import CSSFallbackTestPage from './pages/CSSFallbackTestPage';
-import CSSFallbackDevTestPage from './pages/CSSFallbackDevTestPage';
-import RefreshControlExample from './examples/RefreshControlExample';
+import { EducatorDashboard } from './components/educatorDashboard/EducatorDashboard'
+// import CSSLoadingTestPage from './pages/CSSLoadingTestPage';
+// import CSSRetryTestPage from './pages/CSSRetryTestPage';
+// import CSSFallbackTestPage from './pages/CSSFallbackTestPage';
+// import CSSFallbackDevTestPage from './pages/CSSFallbackDevTestPage';
+// import RefreshControlExample from './examples/RefreshControlExample';
 
 // Accessibility Components
 import { AccessibilityProvider } from './contexts/AccessibilityContext';
@@ -56,6 +57,7 @@ const Home = () => (
         <Link to="/login" className="btn btn-secondary">Login</Link>
         <Link to="/demo" className="btn btn-accent">Try Demo</Link>
         <Link to="/content-management" className="btn btn-accent">Content Management</Link>
+        <Link to="/educator-dashboard" className="btn btn-accent">Educator Dashboard</Link>
       </div>
     </div>
     
@@ -128,16 +130,18 @@ const Navigation: React.FC = () => {
             </button>
           </>
         ) : (
+          
           <>
-            <Link to="/demo" className="nav-link" role="menuitem">Demo</Link>
-            <Link to="/content-management" className="nav-link" role="menuitem">Content Mgmt</Link>
-            <Link to="/css-test" className="nav-link" role="menuitem">CSS Test</Link>
-            <Link to="/css-retry-test" className="nav-link" role="menuitem">CSS Retry</Link>
-            <Link to="/css-fallback-test" className="nav-link" role="menuitem">CSS Fallback</Link>
-            <Link to="/css-dev-test" className="nav-link" role="menuitem">CSS Dev Test</Link>
-            <Link to="/refresh-control" className="nav-link" role="menuitem">Refresh Control</Link>
-            <Link to="/login" className="nav-link" role="menuitem">Login</Link>
-            <Link to="/register" className="nav-link" role="menuitem">Register</Link>
+             <Link to="/demo" className="nav-link" role="menuitem">Demo</Link>
+             <Link to="/content-management" className="nav-link" role="menuitem">Content Mgmt Demo</Link>
+          {/* //   <Link to="/css-test" className="nav-link" role="menuitem">CSS Test</Link>
+          //   <Link to="/css-retry-test" className="nav-link" role="menuitem">CSS Retry</Link>
+          //   <Link to="/css-fallback-test" className="nav-link" role="menuitem">CSS Fallback</Link>
+          //   <Link to="/css-dev-test" className="nav-link" role="menuitem">CSS Dev Test</Link>
+          //   <Link to="/refresh-control" className="nav-link" role="menuitem">Refresh Control</Link> */}
+             <Link to="/educator-dashboard" className="nav-link" role="menuitem">Educator Dashboard</Link>
+             <Link to="/login" className="nav-link" role="menuitem">Login</Link>
+             <Link to="/register" className="nav-link" role="menuitem">Register</Link>
           </>
         )}
       </div>
@@ -209,13 +213,17 @@ const AppContent: React.FC = () => {
             />
             <Route 
               path="/demo" 
-              element={<EquationDuelsDemo />} 
+              element={<EquationDuelsDemo2 />} 
             />
             <Route 
               path="/content-management" 
               element={<ContentManagementDemo />} 
             />
             <Route 
+              path="/educator-dashboard" 
+              element={<EducatorDashboard />} 
+            />
+            {/* <Route 
               path="/css-test" 
               element={<CSSLoadingTestPage />} 
             />
@@ -234,7 +242,7 @@ const AppContent: React.FC = () => {
             <Route 
               path="/refresh-control" 
               element={<RefreshControlExample />} 
-            />
+            /> */}
 
             {/* Protected routes */}
             <Route 
@@ -258,6 +266,14 @@ const AppContent: React.FC = () => {
               element={
                 <ProtectedRoute>
                   <EmailVerification />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/educator-dashboard" 
+              element={
+                <ProtectedRoute>
+                  <EducatorDashboard />
                 </ProtectedRoute>
               } 
             />

@@ -14,16 +14,27 @@ const Dashboard: React.FC = () => {
     dispatch(logoutUser());
   };
 
+  // const handleEnterRealm = (realmType: string) => {
+  //   const contentC= new Set(["content-management", "content-authoring", "educator-dashboard"]);
+  //   if (realmType in contentC)
+  //     console.log("I am content ********")
+  //     navigate(`/${realmType}`)
+  //   // Navigate to the realm - the GameRealm component will handle verification checks
+  //   }
+  //   else{
+  //     navigate(`/realm/${realmType}`);
+  //   }
+  // };
   const handleEnterRealm = (realmType: string) => {
-    const contentC= new Set(["content-management", "content-authoring", "educator-dashboard"]);
-    if (realmType in contentC)
-      console.log("I am content ********")
-      navigate(`/${realmType}`)
-
-    // Navigate to the realm - the GameRealm component will handle verification checks
-    navigate(`/realm/${realmType}`);
+      const contentC= new Set(["content-management", "content-authoring", "educator-dashboard"]);
+      if (realmType in contentC) {
+        
+        console.log('I am content ********');
+        navigate(`/${realmType}`);
+      } else {
+        navigate(`/realm/${realmType}`);
+      }
   };
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
