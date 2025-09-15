@@ -94,6 +94,8 @@ const Dashboard: React.FC = () => {
               <h2 className="text-xl font-bold text-gray-900 mb-6">Choose Your Realm</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {false && (
+                 <>  
                 {/* Content Management Realm */}
                 <div className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
                   <div className="text-4xl mb-3">📚</div>
@@ -131,7 +133,9 @@ const Dashboard: React.FC = () => {
                   >
                     Enter Realm
                   </button>
-                </div>
+                </div> 
+                </> 
+                )}
                 
                 {/* Mathmage Trials Realm */}
                 <div className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
